@@ -1,5 +1,8 @@
-import { describe, expect, expectTypeOf, test } from 'vitest';
-import { fetchUserData, isPolyStr, sortUpper, sqrt, stringLength, sumArray, User } from './funcs';
+import { describe, expect, test } from 'vitest';
+import {
+  fetchUserData, isPolyStr,
+  sortUpper, sqrt, stringLength, sumArray, User, nextFibonacci
+} from './funcs';
 
 
 describe("testings:", () => {
@@ -58,15 +61,26 @@ describe("testings:", () => {
       }
     });
   });
-  
+
   test('Fetch invalid user:', async () => {
     await expect(fetchUserData(80)).rejects.toThrow();
   });
-  
+
   test('Fetch invalid user ID format:', async () => {
     await expect(fetchUserData('not currect input')).rejects.toThrow();
   });
 
   // Test 7:
-  
+  test('nextFibonacci', () => {
+    test('returns the next number in the Fibonacci sequence', () => {
+      expect(nextFibonacci([0, 1, 1, 2, 3, 5])).toBe(8)
+      expect(nextFibonacci([0, 1, 1, 2])).toBe(3)
+    })
+
+    test('throws an error if the array is not a Fibonacci sequence', () => {
+      expect(() => nextFibonacci([0, 1])).toThrow(Error)
+      expect(() => nextFibonacci([0, 2, 3])).toThrow(Error)
+    })
+  })
+
 });

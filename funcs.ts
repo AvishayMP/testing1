@@ -54,16 +54,25 @@ export const sumArray = (arr: Array<number>): number => {
 
 export const fetchUserData = async (userId: number | string): Promise<User | null> => {
     if (typeof userId !== 'number' && typeof userId !== 'string') {
-      throw new Error('Invalid user ID format');
+        throw new Error('Invalid user ID format');
     }
-  
+
     const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
     if (res.ok) {
-      const data = await res.json();
-      console.log(data);
-      
-      return data as User;
+        const data = await res.json();
+        console.log(data);
+
+        return data as User;
     } else {
-      throw new Error('User ID not found');
+        throw new Error('User ID not found');
     }
-  };
+};
+
+export function nextFibonacci(arr: number[]): number {
+    if (arr.length < 2) {
+        throw new Error("The array must contain at least two numbers");
+    }
+    let a = arr[arr.length - 2], b = arr[arr.length - 1];
+    
+    return a + b;
+}
