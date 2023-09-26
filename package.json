@@ -1,0 +1,22 @@
+{
+  "name": "day1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "funcs.ts",
+  "scripts": {
+    "test": "vitest",
+    "start": "nodemone",
+    "dev": "tsx funcs.ts"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vitest": "^0.34.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1"
+  }
+}
